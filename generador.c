@@ -1,19 +1,27 @@
 #include "generador.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 
+// NOTA: CORREGIR LOS RETORNOS DE PUNTEROS AL STACK XD
+
 char *generar_palabra(gramatica gram) {
   char palabra[100] = {};
-  char producto_inicial[5];
+  productor ultimo_prod;
   srand(time(NULL));
 
-  strcpy(producto_inicial,
-         get_producto_random(hallar_productor(gram.productores, CANT_AXIOMAS,
-                                       gram.axioma_inicial)));
+  // caso base -- inicia palabra
+  ultimo_prod =
+      hallar_productor(gram.productores, CANT_AXIOMAS, gram.axioma_inicial);
+  strcpy(palabra, get_producto_random(ultimo_prod));
 
-  sprintf(palabra, "%s", producto_inicial);
+  // hacer funcion vvvvvvvvvvv
+  // hallar_no_terminal(ultimo_prod.resultado, gram.no_terminales) -> char noterminal --
+  // que despues se lo podes pasar a hallar_productor para seguir iterando
+
+  // hacer funcion vvvvvvvv
+  // extender_palabra(palabra, sig_prod, gram.lado);
+  // que tome la palabra y el productor a insertar, y lo inserte
 
   return palabra;
 }
@@ -33,6 +41,7 @@ char *get_producto_random(productor prod) {
   while (tok) {
     strcpy(buffer[i], tok);
     tok = strtok(NULL, delim);
+    i++;
   }
   return buffer[rand() % (i + 1)];
 }

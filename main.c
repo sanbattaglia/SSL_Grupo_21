@@ -24,6 +24,7 @@ int main(int argc, char **argv) {
   printf("string productores: %s\n", str_productores);
   parsear_productores(gram.productores, str_productores);
   gram.axioma_inicial = argv[4][0];
+  gram.lado = IZQ;
 
   printf("no terminales: %s\n", gram.no_terminales);
   printf("terminales: %s\n", gram.terminales);

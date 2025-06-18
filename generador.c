@@ -3,37 +3,37 @@
 #include <string.h>
 #include <time.h>
 
-// NOTA: CORREGIR LOS RETORNOS DE PUNTEROS AL STACK XD
-
-char *generar_palabra(gramatica gram) {
-  char palabra[100] = {};
+void generar_palabra(char *placeholder, gramatica gram) {
+  char buffer[100] = {};
+  char buffer_palabra[1000] = {};
   productor ultimo_prod;
   srand(time(NULL));
 
   // caso base -- inicia palabra
   ultimo_prod =
       hallar_productor(gram.productores, CANT_AXIOMAS, gram.axioma_inicial);
-  strcpy(palabra, get_producto_random(ultimo_prod));
+  get_producto_random(buffer, ultimo_prod);
+  strcpy(buffer_palabra, buffer);
 
   // hacer funcion vvvvvvvvvvv
-  // hallar_no_terminal(ultimo_prod.resultado, gram.no_terminales) -> char noterminal --
-  // que despues se lo podes pasar a hallar_productor para seguir iterando
+  // hallar_no_terminal(ultimo_prod.resultado, gram.no_terminales) -> char
+  // noterminal -- que despues se lo podes pasar a hallar_productor para seguir
+  // iterando
 
   // hacer funcion vvvvvvvv
   // extender_palabra(palabra, sig_prod, gram.lado);
   // que tome la palabra y el productor a insertar, y lo inserte
-
-  return palabra;
 }
 
-char *get_producto_random(productor prod) {
+void get_producto_random(char *placeholder, productor prod) {
   char *tok;
   char buffer[100][5];
   const char delim[] = "|";
 
   tok = strtok(prod.resultado, delim);
   if (!tok) {
-    return prod.resultado;
+    strcpy(placeholder, prod.resultado);
+    return;
   }
 
   // es multiparte
@@ -43,7 +43,7 @@ char *get_producto_random(productor prod) {
     tok = strtok(NULL, delim);
     i++;
   }
-  return buffer[rand() % (i + 1)];
+  strcpy(placeholder, buffer[rand() % (i + 1)]);
 }
 
 productor hallar_productor(productor *productores, int size, char axioma) {

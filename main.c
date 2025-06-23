@@ -25,15 +25,17 @@ int main(int argc, char **argv) {
   parsear_productores(gram.productores, str_productores);
   gram.axioma_inicial = argv[4][0];
 
+  printf("------------\n");
   printf("no terminales: %s\n", gram.no_terminales);
   printf("terminales: %s\n", gram.terminales);
   printf("axioma inicial: %c\n", gram.axioma_inicial);
+  printf("------------\n\n");
 
   // logica de validacion de GR
   gram.lado = IZQ;
 
   // generacion de palabras
-  // char palabra[1000] = {};
-  // generar_palabra(palabra, gram);
-  print_productor(hallar_productor(gram.productores, CANT_AXIOMAS, 'T'));
+  char palabra[1000] = {};
+  generar_palabra(palabra, gram);
+  printf("palabra generada --> %s\n", palabra);
 }

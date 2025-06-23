@@ -14,6 +14,9 @@ typedef struct {
   char lado;
 } gramatica;
 
-void generar_palabra(char *placeholder, gramatica gram);
-void get_producto_random(char *, productor prod);
-productor hallar_productor(productor *productores, int size, char axioma);
+char hallar_no_terminal(char *, char *);
+int extender_palabra(char *, productor);
+void get_producto_random_visual(char *placeholder, productor prod);
+void generar_palabra(char *, gramatica);
+void get_producto_random(char *, productor);
+productor hallar_productor(productor *, int, char);

@@ -27,13 +27,13 @@ productor parsear_productor(char *productor_string) {
   }
   prod.noterminal = noterminal[0];
 
-  printf("productor parseado: %c->%s\n", prod.noterminal, prod.resultado);
+  // printf("productor parseado: %c->%s\n", prod.noterminal, prod.resultado);
 
   return prod;
 }
 
 void parsear_productores(productor *dest, char *productores) {
-  printf("str_productores_adentro: %s\n", productores);
+  // printf("str_productores_adentro: %s\n", productores);
   char prod_token[10];
   char *delimiter = ",";
   char *saveptr1;
@@ -43,7 +43,7 @@ void parsear_productores(productor *dest, char *productores) {
   token = strtok_r(productores, delimiter, &saveptr1);
   while (token) {
     strcpy(prod_token, token);
-    printf("procesando token %d: %s\n", i, prod_token);
+    // printf("procesando token %d: %s\n", i, prod_token);
 
     dest[i] = parsear_productor(prod_token);
     i++;

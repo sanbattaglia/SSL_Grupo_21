@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "generador.h"
+#include "validacion.h"
 
 void print_uno_a_uno(char *str) {
   int len = strlen(str);
@@ -24,6 +25,15 @@ int main(int argc, char **argv) {
   printf("string productores: %s\n", str_productores);
   parsear_productores(gram.productores, str_productores);
   gram.axioma_inicial = argv[4][0];
+
+  // Valida que la gramática sea regular
+  if (!es_gramatica_regular(&gram)) {
+    printf(" Error: La gramática ingresada no es regular.\n");
+    return 1;
+  }
+
+  printf(" Gramática válida. Procediendo a generar palabras...\n");
+
 
   printf("------------\n");
   printf("no terminales: %s\n", gram.no_terminales);

@@ -8,7 +8,7 @@ Programa en C que valida y genera palabras a partir de gramáticas regulares. So
 
 ## Compilación
 ```bash
-gcc -Wall -o generador *
+gcc *.c -Wall -o generador 
 ```
 
 ## Ejecución

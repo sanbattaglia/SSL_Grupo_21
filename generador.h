@@ -1,3 +1,6 @@
+#ifndef GENERADOR_H
+#define GENERADOR_H
+
 #include "productores.h"
 
 #include <stdio.h>
@@ -19,4 +22,6 @@ int extender_palabra(char *, productor);
 void get_producto_random_visual(char *placeholder, productor prod);
 void generar_palabra(char *, gramatica);
 void get_producto_random(char *, productor);
-productor hallar_productor(productor *, int, char);
+productor hallar_productor(productor *productores, int size, char axioma);
+
+#endif // GENERADOR_H

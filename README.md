@@ -11,10 +11,10 @@ Programa en C que valida y genera palabras a partir de gramáticas regulares. So
 gcc *.c -Wall -o generador 
 ```
 
-##Módulos del programa
-├── generador.c         # Implementación del generador de palabras
-├── productores.c       # Implementación del parser de producciones
-├── validacion.c        # Implementación del validador de gramáticas
+## Módulos del programa
+├── generador.c # Implementación del generador de palabras
+├── productores.c # Implementación del parser de producciones
+├── validacion.c # Implementación del validador de gramáticas
 
 ## Ejecución
 ./generador "NO_TERMINALES" "TERMINALES" "PRODUCCIONES" "AXIOMA_INICIAL"

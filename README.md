@@ -4,19 +4,19 @@
 Programa en C que valida y genera palabras a partir de gramáticas regulares. Soporta gramáticas regulares izquierdas y derechas.
 Su función principal es:
 
-Validar que una gramática ingresada cumpla con los requisitos de gramática regular:
-  Todas las producciones son consistentes (todas izquierdas O todas derechas)
-  Formato correcto de producciones (A→a, A→aB, o A→Ba)
-  Símbolos bien definidos (terminales vs. no terminales)
+- Validar que una gramática ingresada cumpla con los requisitos de gramática regular:
+  - Todas las producciones son consistentes (todas izquierdas O todas derechas)
+  - Formato correcto de producciones (A→a, A→aB, o A→Ba)
+  - Símbolos bien definidos (terminales vs. no terminales)
 
-Generar palabras mediante derivaciones aleatorias:
-  Comienza desde el axioma inicial
-  Sustituye no terminales usando producciones seleccionadas aleatoriamente
-  Continúa hasta obtener una palabra compuesta solo por terminales
-
-Soporta ambos tipos de gramáticas regulares:
-Derechas: Sustitución no terminal → terminal + no_terminal (A→aB)
-Izquierdas: Sustitución no terminal → no_terminal + terminal (A→Ba)
+- Generar palabras mediante derivaciones aleatorias:
+  - Comienza desde el axioma inicial
+  - Sustituye no terminales usando producciones seleccionadas aleatoriamente
+  - Continúa hasta obtener una palabra compuesta solo por terminales
+ 
+- Soporta ambos tipos de gramáticas regulares:
+  - Derechas: Sustitución no terminal → terminal + no_terminal (A→aB)
+  - Izquierdas: Sustitución no terminal → no_terminal + terminal (A→Ba)
 
 ## Requisitos
 - Compilador de C (gcc)

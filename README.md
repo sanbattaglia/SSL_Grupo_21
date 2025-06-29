@@ -49,11 +49,3 @@ gcc *.c -Wall -o generador
     Gramática válida
   - Ejemplo 3: "SAB" "ab" "S->aA|Bb,A->a,B->b" "S"
     Gramática inválida
-
-##Funcionamiento
-graph TD
-    A[Argumentos CLI] --> B[Productor<br>parsear_productores]
-    B --> C[Validación<br>es_gramatica_regular]
-    C -->|Válida| D[Generador<br>generar_palabra]
-    C -->|Inválida| E[Error]
-    D --> F[Salida<br>palabra generada]

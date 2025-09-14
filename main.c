@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "generador.h"
-#include "validacion.h"
+#include "src/generador.h"
+#include "src/validacion.h"
 
 void print_uno_a_uno(char *str) {
   int len = strlen(str);

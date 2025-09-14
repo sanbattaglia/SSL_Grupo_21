@@ -1,5 +1,4 @@
 #include "productores.h"
-#include <stdio.h>
 #include <string.h>
 
 productor parsear_productor(char *productor_string) {

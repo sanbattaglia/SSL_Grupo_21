@@ -1,7 +1,4 @@
-#include <regex.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "resolucion.h"
 
 char *leer_archivo(const char *archivo) {
   FILE *f = fopen(archivo, "r");
@@ -31,6 +28,6 @@ char *leer_archivo(const char *archivo) {
 int main() {
 
   const char *texto = leer_archivo("breve_historia.txt");
-  printf("Archivo leido:\n%s\n\nFin Archivo\n", texto);
+  a_contar_oraciones(texto);
   return 0;
 }

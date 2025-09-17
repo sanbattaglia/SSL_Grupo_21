@@ -1,46 +1,36 @@
-/* Arranco TP2 */
-
+#include <regex.h>
 #include <stdio.h>
-#include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
 
-#define MAX_LINE 300
+char *leer_archivo(const char *archivo) {
+  FILE *f = fopen(archivo, "r");
+  if (!f) {
+    fprintf(stderr, "Error abriendo archivo");
+    exit(1);
+  }
 
-int contar_oraciones(FILE *archivo) {
-    
-    char linea[MAX_LINE];
-    int oraciones = 0;
-    
-    fseek(archivo, 0, SEEK_SET);
-    
-    while (fgets(linea, MAX_LINE, archivo) != NULL) {
-        
-        for (int i = 0; linea[i] != '\0'; i++) {
-            if (linea[i] == '.' || linea[i] == '!' || linea[i] == '?') {
-                
-                if (linea[i + 1] == '\0' || linea[i + 1] == '\n' || 
-                    linea[i + 1] == ' ' || isupper(linea[i + 2])) {
-                    oraciones++;
-                }
-            }
-        }
-    }
-    
-    return oraciones;
+  fseek(f, 0, SEEK_END);
+  long longitud = ftell(f);
+  fseek(f, 0, SEEK_SET);
+
+  char *buffer = malloc(longitud + 1);
+  if (!buffer) {
+    fprintf(stderr, "No se pudo reservar memoria para leer el archivo");
+    fclose(f);
+    exit(1);
+  }
+
+  fread(buffer, 1, longitud, f);
+  buffer[longitud] = '\0';
+  fclose(f);
+
+  return buffer;
 }
 
 int main() {
-    
-    FILE *archivo = fopen("breve_historia.txt", "r");
-    
-    if (archivo == NULL) {
-        printf("Error al abrir el archivo\n");
-        return 1;
-    }
-    
-    int total_oraciones = contar_oraciones(archivo);
-    printf("a) Cantidad de oraciones procesadas: %d\n", total_oraciones);
-    
-    fclose(archivo);
-    
-    return 0;
+
+  const char *texto = leer_archivo("breve_historia.txt");
+  printf("Archivo leido:\n%s\n\nFin Archivo\n", texto);
+  return 0;
 }

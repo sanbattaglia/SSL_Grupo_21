@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void a_contar_oraciones(const char *);
+void a_contar_oraciones(const char *, int *);
 void b_listar_independencia(const char *);
 void c_mostrar_el_punto(const char *);
 void d_mostrar_sarmiento(const char *);

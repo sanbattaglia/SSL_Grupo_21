@@ -1,0 +1,17 @@
+inicio
+    int a;
+    int b;
+    string nombre;
+    const int PI := 3;
+    const string SALUDO := "Hola ";
+
+    escribir("Ingrese su nombre: ");
+    leer(nombre);
+    escribir(SALUDO, nombre, "\n");
+
+    escribir("Ingrese un numero: ");
+    leer(a);
+    b := a + PI + 2;
+    
+    escribir("El resultado de ", a, " + PI + 2 es: ", b, "\n");
+fin
